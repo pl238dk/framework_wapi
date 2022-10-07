@@ -1,4 +1,3 @@
-from timestamp.timestamp import timestamp
 import os
 import json
 import base64
@@ -40,7 +39,6 @@ class DNS(object):
 			self.authenticate(connection_info)
 		return
 	
-	@timestamp
 	def authenticate(self, connection_info):
 		self.base_url = f'https://{self.host}/wapi/v2.9.1'
 		self.session = requests.Session()
@@ -68,7 +66,6 @@ class DNS(object):
 		)
 		return
 	
-	@timestamp
 	def get(self, method, params={}):
 		url = f'{self.base_url}/{method}?'
 		_params = {
@@ -118,7 +115,6 @@ class DNS(object):
 		}
 		return
 	
-	@timestamp
 	def get_bare(self, method, params={}):
 		# no extattrs
 		url = f'{self.base_url}/{method}?'
